@@ -12,6 +12,17 @@ def get_artists(url):
         ret.append((i.text, i['href']))
     return ret
 
+def get_songs(artist_url):
+    songs=[]
+    r = requests.get(artist_url)
+    body = r.content
+    soup = BeautifulSoup(body, features="html.parser")
+    tracklists = soup.find("table", {"class" : "tracklist"})
+    links=tracklists.find_all("a")
+    for i in links:
+        songs.append((i.text,i['href']))
+    return songs
+
 
 def crawl():
     artists = get_artists("http://www.songlyrics.com/a/")
