@@ -35,12 +35,12 @@ def get_lyrics(song_url):
 def crawl():
     conn = psycopg2.connect("dbname=lyrics")
     cur = conn.cursor()
-    # cur.execute("drop table song")
-    # cur.execute("drop table artist")
-    # cur.execute("CREATE TABLE artist ( id SERIAL PRIMARY KEY, name VARCHAR(20) );")
-    # cur.execute("CREATE TABLE song ( song_id SERIAL PRIMARY KEY, artist INTEGER references artist(id), song_name TEXT, lyrics TEXT );")
+    cur.execute("drop table song")
+    cur.execute("drop table artist")
+    cur.execute("CREATE TABLE artist ( id SERIAL PRIMARY KEY, name VARCHAR(100) );")
+    cur.execute("CREATE TABLE song ( song_id SERIAL PRIMARY KEY, artist INTEGER references artist(id), song_name TEXT, lyrics TEXT );")
     artists= get_artists("https://www.songlyrics.com/a/")
-    for name, link in artists[:10]:
+    for name, link in artists[:20]:
         cur.execute("INSERT INTO artist (name) VALUES (%s);", (name,))
         print(name, " : ",link)
         songs = get_songs(link)
@@ -49,13 +49,6 @@ def crawl():
                 cur.execute("INSERT INTO song (artist, song_name, lyrics) VALUES ((SELECT id from artist where name=%s),%s,%s);", (name,song,lyrics))    
     conn.commit()
     print("DONE")
-
-def get_all_songs(artist):
-    conn = psycopg2.connect("dbname=lyrics")
-    cur = conn.cursor()
-    cur.execute("SELECT song.song_name FROM song, artist WHERE artist.id = song.artist AND artist.name=%s", (artist,))
-    songs = cur.fetchall()
-    return songs
 
 if __name__ == "__main__":
     crawl()

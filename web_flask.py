@@ -1,18 +1,23 @@
-import crawler
-from flask import Flask
-
+from flask import Flask, render_template
+import get_data
 app = Flask(__name__)
 
-@app.route("/songs")
-def list_all_songs(artist="A"):
-    songs = crawler.get_all_songs(artist)
-    output = []
-    output.append(f"<h1>{artist}</h1>")
-    output.append("<ul>")
-    for i in songs:
-        output.append(f"<li>{i[0]}</li>")
-    output.append("</ul>")
-    return "".join(output)
+@app.route("/")
+def hello():
+    artists = get_data.get_all_artist()
+    return render_template("index.html", artists=artists)
 
-if __name__ == "__main__":
-    app.run(port=6500) 
+@app.route("/songs/<int:aid>")
+def list_all_songs(aid):
+    songs= get_data.get_all_songs(aid)
+    artist= get_data.singer(aid)
+    return render_template("songlist.html",artist=artist[0],songs=songs)
+
+@app.route("/lyrics/<int:sid>")
+def lyrics(sid):
+    lyrics= get_data.get_lyrics(sid)
+    return render_template("lyrics.html",lyrics=lyrics)
+
+
+if __name__=="__main__":
+    app.run() 
