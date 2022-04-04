@@ -18,6 +18,5 @@ def lyrics(sid):
     lyrics= get_data.get_lyrics(sid)
     return render_template("lyrics.html",lyrics=lyrics)
 
-
 if __name__=="__main__":
     app.run() 
