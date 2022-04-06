@@ -23,13 +23,19 @@
       <div class="heading d-flex text-center">
         <h1 class="song">SONG</h1>
         <h1 class="lyrics">LYRICS</h1>
-        <h4 class="com">.com</h4>
+        <h5 class="com">.com</h5>
       </div>
     </div>
-    <div class="row">
-      <div class="col-3">{%block list%}{%endblock%}</div>
-      <div class="col-3">{%block details%}{%endblock%}</div>
-      <div class="col-6">{%block lyrics%}{%endblock%}</div>
+    <div>
+      <h3><center>Hi, Welcome to lyrics database</center></h3>
+    </div>
+    <br />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">{%block list%}{%endblock%}</div>
+        <div class="col-3">{%block details%}{%endblock%}</div>
+        <div class="col-5">{%block lyrics%}{%endblock%}</div>
+      </div>
     </div>
   </body>
 </html>

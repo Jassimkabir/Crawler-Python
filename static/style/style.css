@@ -31,13 +31,37 @@ pre {
   background: transparent;
   padding-top: 17px;
 }
-.artist {
+.listbox {
   min-width: 20rem;
+  border: 1.5px solid grey;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  padding-left: 3px;
 }
-div.col-3 {
+.listbox:hover {
+  background-color: #467fb9;
+}
+h4 {
+  margin-left: 37px;
+}
+h4.lyricspara {
+  margin-left: 0;
+}
+center {
+  margin-top: 16px;
+}
+/* div.col-3 {
   border-right: 1px dotted black;
-  font-size: 85%;
+} */
+li.current {
+  background-color: #467fb9;
+  min-width: 20rem;
+  border: 1.5px solid grey;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  padding-left: 3px;
+  color: #fff;
 }
-div.col-6 {
-  font-size: 85%;
+div.col-5 {
+  padding-left: 55px;
 }
