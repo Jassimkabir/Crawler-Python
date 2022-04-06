@@ -1,15 +1,10 @@
-{% extends 'base.html' %}
-{%block body %}
-<h1> Songs </h1>
-<h4>
-These are the songs for {{artist}}
-</h4>
+{% extends 'index.html' %}
+{%block details%}
+<h1>{{singer[1]}}</h1>
 <p>
 <ul type="none">
 {%for song,sid in songs%}
-<div class="list-box">
-<li><a href="/lyrics/{{sid}}">{{song}} </a></li>
-</div>
+<li><a class="text-decoration-none link-dark" href="/songs/{{singer[0]}}/lyrics/{{sid}}">{{song}} </a></li>
 {%endfor%}
 </ul>
 </p>
