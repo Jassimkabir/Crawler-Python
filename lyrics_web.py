@@ -1,12 +1,16 @@
 from distutils.log import debug
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 import get_data
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
+    return render_template("base.html",)
+
+@app.route("/artists")
+def get_artists():
     artists = get_data.get_all_artist()
-    return render_template("index.html", artists=artists)
+    return jsonify(artists)
 
 @app.route("/songs/<int:aid>")
 def list_all_songs(aid):

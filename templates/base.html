@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="{{ url_for('static',filename='lyrics.ico') }}" />
     <title>Songlyrics</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       type="text/css"
@@ -32,10 +37,11 @@
     <br />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-3">{%block list%}{%endblock%}</div>
+        <div class="col-3 artist_list">{%block list%}{%endblock%}</div>
         <div class="col-3">{%block details%}{%endblock%}</div>
         <div class="col-5">{%block lyrics%}{%endblock%}</div>
       </div>
     </div>
   </body>
+  <script src="{{ url_for('static',filename='site.js') }}"></script>
 </html>
