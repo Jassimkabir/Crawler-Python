@@ -56,6 +56,9 @@ pre {
 h4 {
   margin-left: 37px;
 }
+h4.lhead {
+  margin-left: 0;
+}
 center {
   margin-top: 16px;
 }

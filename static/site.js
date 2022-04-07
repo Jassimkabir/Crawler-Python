@@ -7,7 +7,7 @@ function main() {
         list +=
           `<li class="artistbox" value=${element.id}>` + element.name + `</li>`;
       });
-      tag = `<ul type="none">${list}</ul>`;
+      tag = `<h4>Artists</h4><ul type="none">${list}</ul>`;
       $('div.artist_list').html(tag);
       // console.log(data);
     },
@@ -21,7 +21,7 @@ function main() {
           list +=
             `<li class="songbox" id=${element.id}>` + element.name + `</li>`;
         });
-        tag = `<ul type="none">${list}</ul>`;
+        tag = `<h4>Songs</h4><ul type="none">${list}</ul>`;
         $('div.song_list').html(tag);
         // console.log(data);
       },
@@ -31,7 +31,7 @@ function main() {
     $.get({
       url: `http://127.0.0.1:5000/songs/${this.value}/lyrics/${this.id}`,
       success: (data) => {
-        lyrics = `<pre><p>${data}</p></pre>`;
+        lyrics = `<h4 class="lhead">Lyrics</h4><pre><p>${data}</p></pre>`;
         $('div.lyrics').html(lyrics);
         // console.log(data);
       },
