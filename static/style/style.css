@@ -22,7 +22,7 @@ pre {
   color: rgb(45, 45, 45);
   background: transparent;
 }
-.lyrics {
+.lyrics_h {
   color: #467fb9;
   background: transparent;
 }
@@ -31,28 +31,34 @@ pre {
   background: transparent;
   padding-top: 17px;
 }
-.listbox {
+.artistbox {
   min-width: 20rem;
   border: 1.5px solid grey;
   border-radius: 5px;
   margin-bottom: 2px;
   padding-left: 3px;
+  cursor: pointer;
 }
-.listbox:hover {
+.artistbox:hover {
+  background-color: #467fb9;
+}
+.songbox {
+  min-width: 20rem;
+  border: 1.5px solid grey;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  padding-left: 3px;
+  cursor: pointer;
+}
+.songbox:hover {
   background-color: #467fb9;
 }
 h4 {
   margin-left: 37px;
 }
-h4.lyricspara {
-  margin-left: 0;
-}
 center {
   margin-top: 16px;
 }
-/* div.col-3 {
-  border-right: 1px dotted black;
-} */
 li.current {
   background-color: #467fb9;
   min-width: 20rem;
