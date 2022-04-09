@@ -31,7 +31,7 @@ pre {
   background: transparent;
   padding-top: 17px;
 }
-.artistbox {
+li.artistbox {
   min-width: 20rem;
   border: 1.5px solid grey;
   border-radius: 5px;
@@ -39,10 +39,11 @@ pre {
   padding-left: 3px;
   cursor: pointer;
 }
-.artistbox:hover {
+li.artistbox:hover {
   background-color: #467fb9;
+  color: #fff;
 }
-.songbox {
+li.songbox {
   min-width: 20rem;
   border: 1.5px solid grey;
   border-radius: 5px;
@@ -50,8 +51,9 @@ pre {
   padding-left: 3px;
   cursor: pointer;
 }
-.songbox:hover {
+li.songbox:hover {
   background-color: #467fb9;
+  color: #fff;
 }
 h4 {
   margin-left: 37px;
